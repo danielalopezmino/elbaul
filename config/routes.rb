@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :productos
   root 'page#home'  
 
   get 'page/home'
