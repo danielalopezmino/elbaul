@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  get 'productos' => 'productos#index'
+  get 'productos/:id' => 'productos#show', :as => 'producto'
+
   namespace :admin do |admin|
     resources :productos
   end
