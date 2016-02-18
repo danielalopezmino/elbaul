@@ -20,9 +20,9 @@
         <td><%= producto.descripcion %></td>
         <td><%= producto.foto_url %></td>
         <td><%= producto.precio %></td>
-        <td><%= link_to 'Show', producto %></td>
-        <td><%= link_to 'Edit', edit_producto_path(producto) %></td>
-        <td><%= link_to 'Destroy', producto, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', admin_producto_path(producto) %></td>
+        <td><%= link_to 'Edit', edit_admin_producto_path(producto) %></td>
+        <td><%= link_to 'Destroy', admin_producto_path(producto), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +30,4 @@
 
 <br>
 
-<%= link_to 'New Producto', new_producto_path %>
+<%= link_to 'New Producto', new_admin_producto_path %>

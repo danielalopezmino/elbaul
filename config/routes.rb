@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
+
+  namespace :admin do |admin|
+    resources :productos
+  end
   
-  resources :productos
+  #resources :productos
   root 'page#home'  
 
   get 'page/home'

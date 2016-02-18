@@ -1,4 +1,4 @@
-class ProductosController < ApplicationController
+class Admin::ProductosController < Admin::AdminController
   before_action :set_producto, only: [:show, :edit, :update, :destroy]
 
   # GET /productos
@@ -28,7 +28,7 @@ class ProductosController < ApplicationController
 
     respond_to do |format|
       if @producto.save
-        format.html { redirect_to @producto, notice: 'Producto was successfully created.' }
+        format.html { redirect_to admin_producto_url(@producto), notice: 'Producto was successfully created.' }
         format.json { render :show, status: :created, location: @producto }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class ProductosController < ApplicationController
   def update
     respond_to do |format|
       if @producto.update(producto_params)
-        format.html { redirect_to @producto, notice: 'Producto was successfully updated.' }
+        format.html { redirect_to admin_producto_url(@producto), notice: 'Producto was successfully updated.' }
         format.json { render :show, status: :ok, location: @producto }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class ProductosController < ApplicationController
   def destroy
     @producto.destroy
     respond_to do |format|
-      format.html { redirect_to productos_url, notice: 'Producto was successfully destroyed.' }
+      format.html { redirect_to admin_productos_url, notice: 'Producto was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
