@@ -1,13 +1,14 @@
 Rails.application.routes.draw do
 
+  devise_for :usuarios
   get 'productos' => 'productos#index'
   get 'productos/:id' => 'productos#show', :as => 'producto'
 
+  get 'admin' => 'admin#index'
   namespace :admin do |admin|
     resources :productos
   end
   
-  #resources :productos
   root 'page#home'  
 
   get 'page/home'

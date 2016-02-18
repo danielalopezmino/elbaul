@@ -50,5 +50,8 @@ group :development, :test do
   gem "sqlite3"
 end
 
+#Security Authentication
+gem 'devise'
+
 end
 

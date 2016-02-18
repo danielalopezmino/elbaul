@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Elbaul</title>
+  <title>El Baúl - Administrador</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -10,6 +10,15 @@
 	<p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 	
+	<% if usuario_signed_in? %>
+		<%= link_to 'Salir', destroy_usuario_session_path, method: :delete %>
+	
+		<br /><br />
+		<%= link_to 'Productos', admin_productos_path %>
+	<% else %>
+		<%= link_to 'Ingresar', new_usuario_session_path %>
+	<% end %>
+
 	<%= yield %>
 
 </body>

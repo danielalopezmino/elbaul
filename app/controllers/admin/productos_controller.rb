@@ -1,4 +1,4 @@
-class Admin::ProductosController < Admin::AdminController
+class Admin::ProductosController < Admin::BaseController
   before_action :set_producto, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/productos
