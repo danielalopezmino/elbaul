@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ProductosControllerTest < ActionController::TestCase
+class Admin::ProductosControllerTest < ActionController::TestCase
   setup do
     @producto = productos(:one)
   end
@@ -21,7 +21,7 @@ class ProductosControllerTest < ActionController::TestCase
       post :create, producto: { descripcion: @producto.descripcion, foto_url: @producto.foto_url, nombre: @producto.nombre, precio: @producto.precio }
     end
 
-    assert_redirected_to producto_path(assigns(:producto))
+    assert_redirected_to admin_producto_path(assigns(:producto))
   end
 
   test "should show producto" do
@@ -36,7 +36,7 @@ class ProductosControllerTest < ActionController::TestCase
 
   test "should update producto" do
     patch :update, id: @producto, producto: { descripcion: @producto.descripcion, foto_url: @producto.foto_url, nombre: @producto.nombre, precio: @producto.precio }
-    assert_redirected_to producto_path(assigns(:producto))
+    assert_redirected_to admin_producto_path(assigns(:producto))
   end
 
   test "should destroy producto" do
@@ -44,6 +44,6 @@ class ProductosControllerTest < ActionController::TestCase
       delete :destroy, id: @producto
     end
 
-    assert_redirected_to productos_path
+    assert_redirected_to admin_productos_path
   end
 end
