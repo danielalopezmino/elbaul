@@ -10,7 +10,26 @@
 	<p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 	
-	<%= yield %>
+
+   <ul>
+  <li><a href="#home">Home</a></li>
+  <li><a href="#regalos">Regalos</a></li>
+  <li><a href="#contacto">Contacto</a></li>
+  <ul style="float:right;list-style-type:none;">
+    <li><a href="#Carrito">Mi Carrito</a></li>
+  </ul>
+</ul>
+
+
+<%= yield %>
+
+ <footer>
+  <%= image_tag("logo_elbaul.png", :alt => "rss feed") %>
+  
+ 
+</footer> 
 
 </body>
 </html>
+
+
