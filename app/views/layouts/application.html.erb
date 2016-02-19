@@ -9,7 +9,15 @@
 <body>
 	<p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-	
+
+<p>agregado por Fausto</p>
+	<% if usuario_signed_in? %>
+		<%= link_to 'Salir', destroy_usuario_session_path, method: :delete %>
+		<%= link_to 'Cambiar Datos', edit_usuario_registration_path %>
+	<% else %>
+		<%= link_to 'Ingresar', new_usuario_session_path %>
+	<% end %>
+<p>---------</p>
 
    <ul>
   <li><a href="#home">Home</a></li>
@@ -28,6 +36,7 @@
   
  
 </footer> 
+
 
 </body>
 </html>
