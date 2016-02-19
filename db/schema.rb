@@ -13,15 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20160218035956) do
 
-  create_table "admin_arreglos", force: :cascade do |t|
-    t.string   "nombre"
-    t.text     "descripcion"
-    t.string   "foto_url"
-    t.decimal  "precio"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
   create_table "productos", force: :cascade do |t|
     t.string   "nombre"
     t.text     "descripcion"
