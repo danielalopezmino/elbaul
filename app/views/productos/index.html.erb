@@ -1,29 +1,64 @@
-<p id="notice"><%= notice %></p>
+    <!-- Page Content -->
+    <div class="container">
 
-<h1>Listing Productos</h1>
+        <!-- Page Header -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Page Heading
+                    <small>Secondary Text</small>
+                </h1>
+            </div>
+        </div>
+        <!-- /.row -->
 
-<table>
-  <thead>
-    <tr>
-      <th>Nombre</th>
-      <th>Descripcion</th>
-      <th>Foto url</th>
-      <th>Precio</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+        <% @productos.in_groups_of(3, false).each do |group| %>
+        <!-- Projects Row -->
+            <div class="row">
+                <% group.each do |producto| %>
+                    <div class="col-md-4 portfolio-item">
+                        <a href="#">
+                            <img class="img-responsive" src="<%= producto.foto_url %>" alt="<%= producto.nombre %>"
+                                style="height:200px" />
+                        </a>
+                        <h3>
+                            <a href="#"><%= producto.nombre %></a>
+                        </h3>
+                        <p><%= producto.descripcion %></p>
+                    </div>
+                <% end %>
+            </div>
+        <% end %>
+        <!-- /.row -->
 
-  <tbody>
-    <% @productos.each do |producto| %>
-      <tr>
-        <td><%= producto.nombre %></td>
-        <td><%= producto.descripcion %></td>
-        <td><%= producto.foto_url %></td>
-        <td><%= producto.precio %></td>
-        <td><%= link_to 'Show', producto %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        <!-- Projects Row -->
+        <div class="row">
+            <div class="col-md-4 portfolio-item">
+                <a href="#">
+                    <img class="img-responsive" src="http://placehold.it/700x400" alt="">
+                </a>
+                <h3>
+                    <a href="#">Project Name</a>
+                </h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+            </div>
+            <div class="col-md-4 portfolio-item">
+                <a href="#">
+                    <img class="img-responsive" src="http://placehold.it/700x400" alt="">
+                </a>
+                <h3>
+                    <a href="#">Project Name</a>
+                </h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+            </div>
+            <div class="col-md-4 portfolio-item">
+                <a href="#">
+                    <img class="img-responsive" src="http://placehold.it/700x400" alt="">
+                </a>
+                <h3>
+                    <a href="#">Project Name</a>
+                </h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+            </div>
+        </div>
 
-<br>
+    </div>

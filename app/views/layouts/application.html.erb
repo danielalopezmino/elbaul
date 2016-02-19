@@ -7,25 +7,24 @@
   <%= csrf_meta_tags %>
   <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
+
 <body>
-	<p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-
-<p>agregado por Fausto</p>
-	<% if usuario_signed_in? %>
-		<%= link_to 'Salir', destroy_usuario_session_path, method: :delete %>
-		<%= link_to 'Cambiar Datos', edit_usuario_registration_path %>
-	<% else %>
-		<%= link_to 'Ingresar', new_usuario_session_path %>
-	<% end %>
-<p>---------</p>
-
-   <ul>
-  <li><a href="#home">Home</a></li>
-  <li><a href="#regalos">Regalos</a></li>
-  <li><a href="#contacto">Contacto</a></li>
+	<!-- <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+	 -->
+  
+  
+  <ul>
+  <li><%= link_to "Home", root_path %></li>
+  <li><%= link_to "Regalos", productos_path %></li>
+  <li><%= link_to "Contactos", page_contactos_path %></li>
   <ul style="float:right;list-style-type:none;">
-    <li><a href="#Carrito">Mi Carrito</a></li>
+    <% if usuario_signed_in? %>
+      <li><%= link_to current_usuario.email, edit_usuario_registration_path %></li>
+      <li><%= link_to 'Salir', destroy_usuario_session_path, method: :delete %></li>
+    <% else %>
+      <li><%= link_to 'Ingresar', new_usuario_session_path %></li>
+    <% end %>
   </ul>
 </ul>
 
