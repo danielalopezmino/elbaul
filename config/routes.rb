@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
   devise_for :usuarios
+  scope "/admin" do
+    resources :usuarios
+  end
+
   get 'productos' => 'productos#index'
   get 'productos/:id' => 'productos#show', :as => 'producto'
 
