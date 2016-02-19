@@ -52,6 +52,7 @@ end
 
 #Security Authentication
 gem 'devise'
+gem "recaptcha", require: "recaptcha/rails", github: "ambethia/recaptcha"
 
 end
 

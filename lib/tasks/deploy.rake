@@ -1,8 +1,10 @@
 namespace :deploy do
   
   desc "Deploy all"
-  task :all => ["bundle:install", :db, :web] do
-
+  task :all do
+    Rake::Task["bundle:install"].invoke
+    Rake::Task["deploy:db"].invoke
+    Rake::Task["deploy:web"].invoke
   end  	
 
   desc "Deploy web server"
