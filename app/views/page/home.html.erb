@@ -44,7 +44,7 @@
       <% @productos.each do |producto| %>
       <li>
         <a href="productos/<%= producto.id %>">
-          <img src="<%= producto.foto_url %>" />
+          <img src="<%= producto.foto_url %>" style="max-width: 210px" />
         </a>
       </li>
       <% end %>
