@@ -37,17 +37,19 @@
 </div>
 <div class="main">
   <div class="content-top">
-    <h2>snowboards</h2>
-    <p>hendrerit in vulputate velit esse molestie consequat, vel illum dolore</p>
+    <h2>CAJAS</h2>
+    <p>Alguna descripción chévere</p>
     <div class="close_but"><i class="close1"> </i></div>
     <ul id="flexiselDemo3">
-      <li><img src="/images/board1.jpg" /></li>
-      <li><img src="/images/board2.jpg" /></li>
-      <li><img src="/images/board3.jpg" /></li>
-      <li><img src="/images/board4.jpg" /></li>
-      <li><img src="/images/board5.jpg" /></li>
+      <% @productos.each do |producto| %>
+      <li>
+        <a href="productos/<%= producto.id %>">
+          <img src="<%= producto.foto_url %>" />
+        </a>
+      </li>
+      <% end %>
     </ul>
-    <h3>SnowBoard Extreme Series</h3>
+    <h3>Los productos del momento</h3>
     <script type="text/javascript">
       $(window).load(function() {
         $("#flexiselDemo3").flexisel({
@@ -78,6 +80,7 @@
     <script type="text/javascript" src="/js/jquery.flexisel.js"></script>
   </div>
 </div>
+<% if false %>
 <div class="content-bottom">
   <div class="container">
     <div class="row content_bottom-text">
@@ -150,4 +153,4 @@
     </div>
   </div>
 </div>
-</div>
+<%end %>
