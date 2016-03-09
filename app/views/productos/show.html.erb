@@ -1,114 +1,96 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Producto-Item</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link href="css/producto-item.css.css" rel="stylesheet">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-</head>
-
-<body>
-
-    <!-- Page Content -->
+<div class="main">
+  <div class="shop_top">
     <div class="container">
-
-        <!-- Portfolio Item Heading -->
-        <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header">Portfolio Item
-                    <small>Item Subheading</small>
-                </h1>
+      <div class="row">
+        <div class="col-md-9 single_left">
+          <div class="single_image">
+            <ul id="etalage">
+              <li>
+                <a href="optionallink.html">
+                  <img class="etalage_thumb_image" src="<%= @producto.foto_url %>" />
+                  <img class="etalage_source_image" src="<%= @producto.foto_url %>" />
+                </a>
+              </li>
+              <li>
+                <img class="etalage_thumb_image" src="<%= @producto.foto_url %>" />
+                <img class="etalage_source_image" src="<%= @producto.foto_url %>" />
+              </li>
+              <li>
+                <img class="etalage_thumb_image" src="<%= @producto.foto_url %>" />
+                <img class="etalage_source_image" src="<%= @producto.foto_url %>" />
+              </li>
+              <li>
+                <img class="etalage_thumb_image" src="<%= @producto.foto_url %>" />
+                <img class="etalage_source_image" src="<%= @producto.foto_url %>" />
+              </li>
+            </ul>
+          </div>
+          <!-- end product_slider -->
+          <div class="single_right">
+            <h3><%= @producto.nombre %> </h3>
+            <p class="m_10"><%= @producto.descripcion %></p>
+            <div class="social_buttons">
+              <h4>Item disponible en stock</h4>
+              <button type="button" class="btn1 btn1-default1 btn1-twitter" onclick="">
+                <i class="icon-twitter"></i> Tweet
+              </button>
+              <button type="button" class="btn1 btn1-default1 btn1-facebook" onclick="">
+                <i class="icon-facebook"></i> Share
+              </button>
+              <button type="button" class="btn1 btn1-default1 btn1-google" onclick="">
+                <i class="icon-google"></i> Google+
+              </button>
+              <button type="button" class="btn1 btn1-default1 btn1-pinterest" onclick="">
+                <i class="icon-pinterest"></i> Pinterest
+              </button>
             </div>
+          </div>
+          <div class="clear"> </div>
         </div>
-        <!-- /.row -->
-
-        <!-- Portfolio Item Row -->
-        <div class="row">
-
-            <div class="col-md-8">
-                <img class="img-responsive" src="http://placehold.it/750x500" alt="">
-            </div>
-
-            <div class="col-md-4">
-                <h3>Project Description</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim.</p>
-                <h3>Project Details</h3>
-                <ul>
-                    <li>Lorem Ipsum</li>
-                    <li>Dolor Sit Amet</li>
-                    <li>Consectetur</li>
-                    <li>Adipiscing Elit</li>
-                </ul>
-            </div>
-
+        <div class="col-md-3">
+          <div class="box-info-product">
+            <p class="price2">$<%= @producto.precio %></p>
+            <% if false %>
+            <ul class="prosuct-qty">
+              <span>Quantity:</span>
+              <select>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+              </select>
+            </ul>
+            <button type="submit" name="Submit" class="exclusive">
+              <span>Agregar</span>
+            </button>
+            <% end %>
+          </div>
         </div>
-        <!-- /.row -->
+      </div>
 
-        <!-- Related Projects Row -->
-        <div class="row">
-
-            <div class="col-lg-12">
-                <h3 class="page-header">Related Projects</h3>
+      <div class="row">
+        <h4 class="m_11">Otros productos</h4>
+        <% @related_productos.each do |producto| %>
+          <div class="col-md-4 product1">
+            <a href="<%= producto.id %>">
+              <img src="<%= producto.foto_url %>" class="img-responsive" alt=""/>
+            </a>
+            <div class="shop_desc">
+            <h3><a href="<%= producto.id %>"><%= producto.nombre %></a></h3>
+              <p><%= producto.descripcion[0..35] %> ...</p>
+              <span class="reducedfrom">$<%= producto.precio * 1.2 %></span>
+              <span class="actual">$<%= producto.precio %></span><br>
+              <ul class="buttons">
+                <% if false %><li class="cart"><a href="#">Agregar</a></li><% end %>
+                <li class="shop_btn"><a href="<%= producto.id %>">Más <%= ENV['config.add.to.cart'] %></a></li>
+                <div class="clear"> </div>
+              </ul>
             </div>
-
-            <div class="col-sm-3 col-xs-6">
-                <a href="#">
-                    <img class="img-responsive portfolio-item" src="http://placehold.it/500x300" alt="">
-                </a>
-            </div>
-
-            <div class="col-sm-3 col-xs-6">
-                <a href="#">
-                    <img class="img-responsive portfolio-item" src="http://placehold.it/500x300" alt="">
-                </a>
-            </div>
-
-            <div class="col-sm-3 col-xs-6">
-                <a href="#">
-                    <img class="img-responsive portfolio-item" src="http://placehold.it/500x300" alt="">
-                </a>
-            </div>
-
-            <div class="col-sm-3 col-xs-6">
-                <a href="#">
-                    <img class="img-responsive portfolio-item" src="http://placehold.it/500x300" alt="">
-                </a>
-            </div>
-
-        </div>
-        <!-- /.row -->
-
-        <hr>
-
-
+          </div>
+        <% end %>
+      </div>
     </div>
-    <!-- /.container -->
-
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-
-</body>
-
-</html>
+  </div>
+</div>
