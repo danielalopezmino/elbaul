@@ -8,6 +8,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html>
 <head>
   <title>The Male Box</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <link href="/css/bootstrap.css" rel='stylesheet' type='text/css' />
   <link href="/css/style.css" rel='stylesheet' type='text/css' />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -116,17 +118,24 @@ License URL: http://creativecommons.org/licenses/by/3.0/
           <ul class="icon1 sub-icon1 profile_img">
             <li><a class="active-icon c1" href="#"> </a>
               <ul class="sub-icon1 list">
-                <div class="product_control_buttons">
-                  <a href="#"><img src="/images/edit.png" alt=""/></a>
-                  <a href="#"><img src="/images/close_edit.png" alt=""/></a>
-                </div>
                 <div class="clear"></div>
-                <li class="list_img"><img src="/images/1.jpg" alt=""/></li>
-                <li class="list_desc"><h4><a href="#">velit esse molestie</a></h4><span class="actual">1 x
-                          $12.00</span></li>
+                <li class="list_img"><img style="background-color: black" src="/images/logo.png" alt="MaleBox"/></li>
+                <li class="list_desc" style="float: right">
+                  <h4>
+                    <% if usuario_signed_in? %>
+                        <%= current_usuario.email %>
+                    <% else %>
+                        Ingresa a nuestra plataforma
+                    <% end %>
+                  </h4>
+                </li>
                 <div class="login_buttons">
-                  <div class="check_button"><a href="checkout.html">Check out</a></div>
-                  <div class="login_button"><a href="login.html">Login</a></div>
+                  <% if usuario_signed_in? %>
+                      <div class="login_button"><%= link_to 'Salir', destroy_usuario_session_path %></div>
+                  <% else %>
+                      <div class="login_button"><%= link_to 'Ingresar', new_usuario_session_path %></div>
+                  <% end %>
+
                   <div class="clear"></div>
                 </div>
                 <div class="clear"></div>

@@ -11,7 +11,7 @@
     <p class="alert"><%= alert %></p>
 	
 	<% if usuario_signed_in? %>
-		<%= link_to 'Salir', destroy_usuario_session_path, method: :delete %>
+		<%= link_to 'Salir', destroy_usuario_session_path %>
 	
 		<br /><br />
 		<%= link_to 'Productos', admin_productos_path %>
