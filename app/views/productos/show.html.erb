@@ -24,7 +24,7 @@
             </ul>
           </div>
           <!-- end product_slider -->
-          <div class="single_right">
+          <div class="single_right" style="width: ">
             <h3><%= @producto.nombre %> </h3>
             <p class="m_10"><%= @producto.descripcion %></p>
             <div class="social_buttons">
@@ -96,7 +96,8 @@
   jQuery(document).ready(function($){
 
     $('#etalage').etalage({
-      thumb_image_width: 300,
+      thumb_image_width: 400,
+      thumb_image_height: 300,
 
       show_hint: true,
       click_callback: function(image_anchor, instance_id){
