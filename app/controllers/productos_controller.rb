@@ -3,7 +3,12 @@ class ProductosController < ApplicationController
   # GET /productos
   # GET /productos.json
   def index
-    @productos = Producto.all
+    busqueda = "#{params['search']}"
+    if busqueda.empty?
+      @productos = Producto.all
+    else
+      @productos = Producto.where("nombre like ? or descripcion like ?", "%#{busqueda}%", "%#{busqueda}%")
+    end
   end
 
   # GET /productos/1
@@ -11,6 +16,5 @@ class ProductosController < ApplicationController
   def show
   	@producto = Producto.find(params[:id])
     @related_productos = Producto.all.sample(3)
-    puts "aaaaaaaaaaaaaa:  #{@producto.nombre}"
   end
 end
