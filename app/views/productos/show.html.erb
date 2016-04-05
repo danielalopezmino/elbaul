@@ -6,10 +6,8 @@
           <div class="single_image">
             <ul id="etalage">
               <li>
-                <a href="optionallink.html">
-                  <img class="etalage_thumb_image" src="<%= @producto.foto_url %>" />
-                  <img class="etalage_source_image" src="<%= @producto.foto_url %>" />
-                </a>
+                <img class="etalage_thumb_image" src="<%= @producto.foto_url %>" />
+                <img class="etalage_source_image" src="<%= @producto.foto_url %>" />
               </li>
               <li>
                 <img class="etalage_thumb_image" src="<%= @producto.foto_url %>" />
@@ -94,3 +92,22 @@
     </div>
   </div>
 </div>
+<script>
+  jQuery(document).ready(function($){
+
+    $('#etalage').etalage({
+      thumb_image_width: 300,
+      thumb_image_height: 400,
+
+      show_hint: true,
+      click_callback: function(image_anchor, instance_id){
+        alert('Callback example:\nYou clicked on an image with the anchor: "'+image_anchor+'"\n(in Etalage instance: "'+instance_id+'")');
+      }
+    });
+    // This is for the dropdown list example:
+    $('.dropdownlist').change(function(){
+      etalage_show( $(this).find('option:selected').attr('class') );
+    });
+
+  });
+</script>
