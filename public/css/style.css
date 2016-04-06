@@ -1277,12 +1277,12 @@ p.m_8{
 }
 /*--single--*/
 .single_image{
-	/*width:36.5%;*/
+	width:36.5%;
 	float: left;
 	margin-right: 2.6%;
 }
 .single_right{
-	/*width: 60.5%;*/
+	width: 60.5%;
 	float: left;
 }
 .single_right h3{
