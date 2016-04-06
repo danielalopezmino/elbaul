@@ -98,10 +98,13 @@
 </div>
 <script>
   jQuery(document).ready(function($){
-
+    w = 500
+    sw = screen.width
+    if(sw <= 992)
+      w = screen.width*.85
     $('#etalage').etalage({
-      thumb_image_width: 500,
-      thumb_image_height: 330,
+      thumb_image_width: w,
+      thumb_image_height: w*.6,
 
       show_hint: true,
       click_callback: function(image_anchor, instance_id){

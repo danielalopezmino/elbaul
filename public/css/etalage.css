@@ -120,12 +120,9 @@ div.etalage_description.rtl{ direction:rtl; text-align:right }
 		float: left;
 	 }
 }
-@media (max-width:480px){
-	#etalage {
-	margin-bottom:0%;
- }
+@media (max-width:540px){
  .single_right {
 	width: 100%;
-	float: none;
+	float: left;
  }
 }
