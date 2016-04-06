@@ -2,7 +2,7 @@
   <div class="shop_top">
     <div class="container">
       <div class="row">
-        <div class="col-md-9 single_left">
+        <div class="col-md-9 single_left" style="width:80%">
           <div class="single_image">
             <ul id="etalage">
               <li>
@@ -45,7 +45,7 @@
           </div>
           <div class="clear"> </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-3" style="width:20%">
           <div class="box-info-product">
             <p class="price2">$<%= @producto.precio %></p>
             <% if false %>
@@ -96,8 +96,8 @@
   jQuery(document).ready(function($){
 
     $('#etalage').etalage({
-      thumb_image_width: 300,
-      thumb_image_height: 400,
+      thumb_image_width: 500,
+      thumb_image_height: 330,
 
       show_hint: true,
       click_callback: function(image_anchor, instance_id){

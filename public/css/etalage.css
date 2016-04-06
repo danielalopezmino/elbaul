@@ -55,7 +55,7 @@
 
 /* Icon that will apear at the left bottom of the large thumbnail (optional): */
 #etalage .etalage_icon{
-	background: url(../images/zoom.png) no-repeat rgba(184, 183, 181, 0.32);
+	/*background: url(../images/zoom.png) no-repeat rgba(184, 183, 181, 0.32);*/
 	width: 104px;
 	height: 104px;
 }
@@ -102,39 +102,23 @@
 div.etalage_description{ position:absolute; bottom:0; left:0; z-index:999 }
 div.etalage_description.rtl{ direction:rtl; text-align:right }
 
-@media (max-width:1024px){
-#etalage .etalage_thumb_image {
-		width: 240px !important;
-		height: 340px !important;
-	}
-	#etalage .etalage_icon {
-		background: url(../images/zoom.png) no-repeat rgba(184, 183, 181, 0.32) -13px -9px;
-		width: 80px;
-		height: 80px;
-		top: 270px !important;
-		left: 4px !important;
-	}
-	li.etalage_small_thumbs {
-		width: 216px !important;
-		top: 370px !important;
-	}
+@media (max-width:1200px){
+	.single_right {
+		width: 30%;
+		float: right;
+	 }
 }
-@media (max-width:640px){
-#etalage .etalage_thumb_image {
-		width: 200px !important;
-		height: 300px !important;
-	}
-	#etalage .etalage_icon {
-		background: url(../images/zoom.png) no-repeat rgba(184, 183, 181, 0.32) -19px -20px;
-		width: 60px;
-		height: 60px;
-		top: 249px !important;
-		left: 4px !important;
-	}
-	li.etalage_small_thumbs {
-		width: 216px !important;
-		top: 350px !important;
-	}
+@media (max-width:992px){
+	 .single_right {
+		width: 100%;
+		float: left;
+	 }
+}
+@media (max-width:768px){
+	 .single_right {
+		width: 100%;
+		float: left;
+	 }
 }
 @media (max-width:480px){
 	#etalage {
