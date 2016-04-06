@@ -29,6 +29,9 @@
             <p class="m_10"><%= @producto.descripcion %></p>
             <div class="social_buttons">
               <h4>Item disponible en stock</h4>
+            </div>
+            <% if false %>
+            <div class="social_buttons">
               <button type="button" class="btn1 btn1-default1 btn1-twitter" onclick="">
                 <i class="icon-twitter"></i> Tweet
               </button>
@@ -42,6 +45,7 @@
                 <i class="icon-pinterest"></i> Pinterest
               </button>
             </div>
+            <% end %>
           </div>
           <div class="clear"> </div>
         </div>
@@ -69,7 +73,7 @@
       </div>
 
       <div class="row">
-        <h4 class="m_11">Otros productos</h4>
+        <h4 class="m_11">Productos relacionados</h4>
         <% @related_productos.each do |producto| %>
           <div class="col-md-4 product1">
             <a href="<%= producto.id %>">
