@@ -478,9 +478,11 @@ li.list_desc h4 a:hover{
 	color: #000;
 	font-size: 0.95em;
 	text-transform: uppercase;
-	text-align: center;
-	font-weight: 600;
-	margin-bottom:1%;
+	text-align: justify;
+	font-weight: 400;
+	margin-bottom:2%;
+	margin-left: 3%;
+	margin-right: 3%;
 }
 .content-top h3{
 	color:#000;
