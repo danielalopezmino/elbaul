@@ -47,15 +47,14 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.default :charset => "utf-8"
 
+
   config.action_mailer.smtp_settings = {
-      :address                  => ENV["MAIL_SMTP"],
-      :port                     => 465,
-      :user_name                => ENV["MAIL_USERNAME"],
-      :domain                   => ENV["MAIL_DOMAIN"],
-      :password                 => ENV["MAIL_PASSWORD"],
-      :authentication           => :login,
-      :ssl                      => true,
-      :tls                      => true,
-      :enable_starttls_auto     => true
+      address:              ENV["MAIL_SMTP"],
+      port:                 587,
+      domain:               ENV["MAIL_DOMAIN"],
+      authentication:       ENV["MAIL_USERNAME"],
+      password:             ENV["MAIL_USERNAME"],
+      authentication:       'plain',
+      enable_starttls_auto: true
   }
 end
