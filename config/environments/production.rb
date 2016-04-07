@@ -78,7 +78,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   #devise
-  config.action_mailer.default_url_options = { host: 'maleboxgifts.com'}
+  config.action_mailer.default_url_options = { host: 'maleboxgifts.herokuapp.com'}
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
@@ -88,7 +88,7 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
       address:              'smtp.zoho.com',
       port:                 587,
-      domain:               'zoho.com',
+      domain:               'maleboxgifts.herokuapp.com',
       user_name:            'info@maleboxgifts.com',
       password:             'gbvtup1720LUNA',
       authentication:       'plain',
