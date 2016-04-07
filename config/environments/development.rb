@@ -48,12 +48,13 @@ Rails.application.configure do
   config.action_mailer.default :charset => "utf-8"
 
   config.action_mailer.smtp_settings = {
-      address: "smtp.zoho.com",
-      port: 587,
-      domain: "zoho.com",
-      authentication: "plain",
-      enable_starttls_auto: true,
-      user_name: ENV["ZOHO_USERNAME"],
-      password: ENV["ZOHO_PASSWORD"]
+      address:               "smtp.zoho.com",
+      port:                  465,
+      user_name:             ENV["ZOHO_USERNAME"],
+      password:              ENV["ZOHO_PASSWORD"],
+      authentication:        login,
+      ssl:                   true,
+      tls:                   true,
+      enable_starttls_auto:  true
   }
 end
