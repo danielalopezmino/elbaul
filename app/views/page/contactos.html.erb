@@ -23,20 +23,21 @@
       </div>
       <div class="row">
         <div class="col-md-12 contact">
-          <form method="post" action="contact-post.html">
+            <%= form_tag("/page/contactos", method: "post") do %>
             <div class="to">
-              <input type="text" class="text" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}">
-              <input type="text" class="text" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}">
-              <input type="text" class="text" value="Subject" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Subject';}">
+              <input type="text" name="nombre" class="text" value="Nombre" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}">
+              <input type="text" name="email" class="text" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}">
+              <input type="text" name="titulo" class="text" value="Título" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Subject';}">
             </div>
             <div class="text">
-              <textarea value="Message:" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message';}">Message:</textarea>
+              <textarea name="mensaje" value="Mensaje:" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message';}">Message:</textarea>
+              <%= recaptcha_tags %>
               <div class="form-submit">
                 <input name="submit" type="submit" id="submit" value="Submit"><br>
               </div>
             </div>
             <div class="clear"></div>
-          </form>
+          <% end %>
         </div>
       </div>
     </div>
