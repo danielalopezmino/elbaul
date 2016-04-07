@@ -89,8 +89,8 @@ Rails.application.configure do
       address:              'smtp.zoho.com',
       port:                 587,
       domain:               'maleboxgifts.herokuapp.com',
-      user_name:            'info@maleboxgifts.com',
-      password:             '123abc456',
+      user_name:            ENV['MAIL_USERNAME'],
+      password:             ENV['MAIL_PASSWORD'],
       authentication:       'plain',
       enable_starttls_auto: true
   }

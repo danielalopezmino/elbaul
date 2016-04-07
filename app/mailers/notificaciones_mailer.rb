@@ -1,5 +1,5 @@
 class NotificacionesMailer < ActionMailer::Base
-  default from: "contactos@maleboxgifts.com"
+  default from: "info@maleboxgifts.com"
   default to: "faustodelatog@gmail.com"
 
   def contactos_email (nombre, email, titulo, mensaje)
