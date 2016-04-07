@@ -85,18 +85,6 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.default :charset => "utf-8"
 
-=begin
-  config.action_mailer.smtp_settings = {
-      address:                   "smtp.zoho.com",
-      port:                      465,
-      user_name:                 "info@maleboxgifts.com",
-      domain:                    "maleboxgifts.com",
-      password:                  "gbvtup1720LUNA",
-      authentication:            "plain",
-      ssl:                       true
-  }
-=end
-
   config.action_mailer.smtp_settings = {
       address:              'smtp.zoho.com',
       port:                 587,
