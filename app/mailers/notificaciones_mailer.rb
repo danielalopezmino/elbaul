@@ -1,11 +1,9 @@
 class NotificacionesMailer < ActionMailer::Base
-  default from: "info@maleboxgifts.com"
-  default to: "faustodelatog@gmail.com"
 
   def contactos_email (nombre, email, titulo, mensaje)
     @nombre = nombre
     @email = email
     @mensaje = mensaje
-    mail(subject: titulo)
+    mail(subject: "[CONTACTOS] #{titulo}", from: 'contactos@maleboxgifts.com', to: 'faustodelatog@gmail.com')
   end
 end
