@@ -90,7 +90,7 @@ Rails.application.configure do
       port:                 587,
       domain:               ENV["MAIL_DOMAIN"],
       authentication:       ENV["MAIL_USERNAME"],
-      password:             ENV["MAIL_USERNAME"],
+      password:             ENV["MAIL_PASSWORD"],
       authentication:       'plain',
       enable_starttls_auto: true
   }
