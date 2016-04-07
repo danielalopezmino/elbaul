@@ -98,12 +98,12 @@ Rails.application.configure do
 =end
 
   config.action_mailer.smtp_settings = {
-      address: "smtp.zoho.com",
-      port: 587,
-      domain: "zoho.com",
-      authentication: "login",
-      enable_starttls_auto: true,
-      user_name: "info@maleboxgifts.com",
-      password: "gbvtup1720LUNA"
+      address:              'smtp.zoho.com',
+      port:                 587,
+      domain:               'zoho.com',
+      user_name:            'info@maleboxgifts.com',
+      password:             'gbvtup1720LUNA',
+      authentication:       'plain',
+      enable_starttls_auto: true
   }
 end
