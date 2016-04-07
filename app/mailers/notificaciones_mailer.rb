@@ -4,6 +4,6 @@ class NotificacionesMailer < ActionMailer::Base
     @nombre = nombre
     @email = email
     @mensaje = mensaje
-    mail(subject: "[CONTACTOS] #{titulo}", from: 'contactos@maleboxgifts.com', to: 'faustodelatog@gmail.com')
+    mail(subject: "[CONTACTOS] #{titulo}", from: 'info@maleboxgifts.com', to: 'faustodelatog@gmail.com')
   end
 end
