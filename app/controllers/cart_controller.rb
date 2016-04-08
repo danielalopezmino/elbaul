@@ -9,8 +9,21 @@ class CartController < ApplicationController
   def add_product (product_id)
     cart = session[:cart_id] || {}
     quantity = cart[product_id] || 0
-
     cart[product_id] = quantity + 1
+
+    session[:cart_id] = cart
+  end
+
+  def remove_from_cart
+    product_id = params[:product_id]
+    remove_product product_id
+    redirect_to controller: 'cart', action: 'index'
+  end
+
+  def remove_product (product_id)
+    cart = session[:cart_id]
+    cart.delete(product_id)
+
     session[:cart_id] = cart
   end
 
@@ -19,7 +32,6 @@ class CartController < ApplicationController
     cart = session[:cart_id]
 
     @cart = Cart.new(cart)
-    @otra = 'asskjdhasjdhsfsdhf '
   end
 
 end
