@@ -17,7 +17,7 @@
                 <span class="reducedfrom">$<%= producto.precio*1.2 %></span>
                 <span class="actual">$<%= producto.precio %></span><br>
                 <ul class="buttons">
-                  <% if false %><li class="cart"><a href="#">Agregar</a></li><% end %>
+                  <li class="cart"><%= link_to "Agregar", add_to_cart_path(:product_id => producto.id), :method => :post %></li>
                   <li class="shop_btn"><a href="productos/<%= producto.id %>">Ver</a></li>
                   <div class="clear"> </div>
                 </ul>

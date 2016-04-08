@@ -21,6 +21,10 @@ Rails.application.routes.draw do
 
   post 'page/contactos' => 'page#send_email'
 
+  post '/add_to_cart/:product_id' => 'cart#add_to_cart', :as => 'add_to_cart'
+
+  get 'cart' => 'cart#index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

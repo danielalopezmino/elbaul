@@ -52,8 +52,8 @@
         <div class="col-md-3" style="width:20%">
           <div class="box-info-product">
             <p class="price2">$<%= @producto.precio %></p>
-            <% if false %>
             <ul class="prosuct-qty">
+              <% if false %>
               <span>Quantity:</span>
               <select>
                 <option>1</option>
@@ -63,11 +63,11 @@
                 <option>5</option>
                 <option>6</option>
               </select>
-            </ul>
-            <button type="submit" name="Submit" class="exclusive">
-              <span>Agregar</span>
-            </button>
             <% end %>
+            </ul>
+              <%= link_to add_to_cart_path(:product_id => @producto.id), :method => :post, :class => 'exclusive' do %>
+              <span>Agregar</span>
+              <% end %>
           </div>
         </div>
       </div>
@@ -85,7 +85,7 @@
               <span class="reducedfrom">$<%= producto.precio * 1.2 %></span>
               <span class="actual">$<%= producto.precio %></span><br>
               <ul class="buttons">
-                <% if false %><li class="cart"><a href="#">Agregar</a></li><% end %>
+                <li class="cart"><%= link_to "Agregar", add_to_cart_path(:product_id => producto.id), :method => :post %></li>
                 <li class="shop_btn"><a href="<%= producto.id %>">Más <%= ENV['config.add.to.cart'] %></a></li>
                 <div class="clear"> </div>
               </ul>

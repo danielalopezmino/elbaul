@@ -62,7 +62,7 @@
 
 /* Hint that will apear at the top right of the large thumbnail (optional): */
 #etalage .etalage_hint{
-	background: url(../images/hint.gif) no-repeat;
+	/*background: url(../images/hint.gif) no-repeat;*/
 	width: 130px;
 	height: 57px;
 }

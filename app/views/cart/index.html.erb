@@ -1,0 +1,26 @@
+<div class="main">
+  <div class="shop_top">
+    <div class="container">
+      
+      <% @cart.items.each do |item| %>
+          <div class="row">
+              <div class="col-md-3 shop_box">
+                <a href="productos/<%= item.producto.id %>">
+                  <img src="<%= item.producto.foto_url %>" class="img-responsive" alt=""/>
+              <span class="new-box">
+                <span class="new-label">Nuevo</span>
+              </span>
+              <div class="shop_desc">
+                <h3><a href="productos/<%= item.producto.id %>"><%= item.producto.nombre %></a></h3>
+                <p><%= item.producto.descripcion[0..35] %> ...</p>
+                <span class="actual">$<%= item.producto.precio %></span><br>
+                <span class="actual">$<%= item.cantidad %></span><br>
+
+              </div>
+                </a>
+              </div>
+          </div>
+      <% end %>
+    </div>
+  </div>
+</div>
