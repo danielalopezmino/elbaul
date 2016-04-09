@@ -2,7 +2,7 @@
   <div class="shop_top" style="padding: 1% 0">
     <div class="container">
       <div style="float: left; width: 70%">
-        <div class="row" style="margin-bottom: 5px; background-color: black; height: 20px; color: white;">
+        <div class="row" style="margin-bottom: 20px; height: 20px; color: gray; font-weight: bold; font-size: smaller">
           <div style="float: left; width: 15%; margin: 0 5% 0 20%">
             Producto
           </div>
@@ -15,12 +15,12 @@
             Precio
           </div>
 
-          <div style="float: left; width: 15%; margin-right: 5%; text-align: center;">
+          <div style="float: left; width: 15%; margin-right: 5%; text-align: center; color: #E25050">
             Total
           </div>
         </div>
         <% @cart.items.each do |item| %>
-            <div class="row" style="margin-bottom: 5px; border: solid gray 1px; padding-bottom: 5px">
+            <div class="row" style="margin-bottom: 5px; border-bottom: solid gray 1px; padding-bottom: 5px">
 
               <div style="width:15%; float: left;  margin-right: 5%;  border: solid gray 1px; padding: 3px; color: black">
                 <a href="productos/<%= item.producto.id %>">
@@ -29,27 +29,33 @@
               </div>
 
               <div style="float: left; width: 15%; margin-right: 5%; margin-top: 2%">
-                <a href="productos/<%= item.producto.id %>" style="color: black"><%= item.producto.nombre %></a>
-                <%= link_to "Remover", remove_from_cart_path(:product_id => item.producto.id), :style=>'color: gray; font-size: small', :method => :post %>
+                <a href="productos/<%= item.producto.id %>" style="color: black; font-size: smaller"><%= item.producto.nombre %></a>
+                <%= link_to remove_all_from_cart_path(:product_id => item.producto.id), :style=>'color: gray; font-size: small', :method => :post,  data: { confirm: 'Se eliminirá el producto de su pedido' } do%>
+                  <img src="/images/remove.png" style="width: 15px">
+                <% end %>
               </div>
 
               <div style="float: left; width: 15%; margin-right: 5%; text-align: center; margin-top: 2%">
                 <%= item.cantidad %>
                 <div>
-                  <%= link_to add_to_cart_path(:product_id => item.producto.id), :method => :post do %>
-                      <img src="/images/plus.png" style="width: 15px">
+                  <% if item.cantidad < 10 %>
+                    <%= link_to add_to_cart_path(:product_id => item.producto.id), :method => :post do %>
+                        <img src="/images/plus.png" style="width: 15px">
+                    <% end %>
                   <% end %>
-                  <%= link_to remove_from_cart_path(:product_id => item.producto.id), :method => :post do %>
-                      <img src="/images/minus.png" style="width: 15px">
+                  <% if item.cantidad > 1 %>
+                    <%= link_to remove_from_cart_path(:product_id => item.producto.id), :method => :post do %>
+                        <img src="/images/minus.png" style="width: 15px">
+                    <% end %>
                   <% end %>
                 </div>
               </div>
 
-              <div style="float: left; width: 15%; margin-right: 5%; text-align: center; margin-top: 2%"">
+              <div style="float: left; width: 15%; margin-right: 5%; text-align: center; margin-top: 2%">
                 <%= item.producto.precio %>
               </div>
 
-              <div style="float: left; width: 15%; margin-right: 5%; text-align: center; margin-top: 2%">
+              <div style="float: left; width: 15%; margin-right: 5%; text-align: center; margin-top: 2%; font-weight: bold">
                 <%= item.total %>
               </div>
             </div>

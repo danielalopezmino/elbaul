@@ -30,7 +30,7 @@ class CartController < ApplicationController
 
   def remove_all_from_cart
     product_id = params[:product_id]
-    remove_product product_id
+    remove_all_product product_id
     redirect_to controller: 'cart', action: 'index'
   end
 
