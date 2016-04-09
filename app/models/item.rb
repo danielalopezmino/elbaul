@@ -6,4 +6,8 @@ class Item
     @producto = Producto.find(producto_id)
     @cantidad = cantidad
   end
+
+  def total
+    producto.precio*cantidad
+  end
 end

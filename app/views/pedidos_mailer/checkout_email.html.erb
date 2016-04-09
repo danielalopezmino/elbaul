@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <link href="/css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link href="/css/style.css" rel='stylesheet' type='text/css' />
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+  <h1>Tenemos un nuevo pedido (QUE BIEN!!!) </h1>
+  Nombre: <h2> <%= @nombre %> </h2>
+  Teléfono: <h2> <%= @telefono %> </h2>
+  Email: <h2> <%= @email %> </h2>
+  Dirección: <h2> <%= @direccion %> </h2>
+  <br />
+  <h3>Pedido:</h3>
+  <div>
+    <div class="main">
+      <div class="shop_top" style="padding: 1% 0">
+        <div class="container">
+          <div style="float: left; width: 70%">
+            <div class="row" style="margin-bottom: 5px; background-color: black; height: 20px; color: white;">
+              <div style="float: left; width: 15%; margin: 0 5% 0 20%">
+                Producto
+              </div>
+
+              <div style="float: left; width: 15%; margin: 0 5% 0 0; text-align: center">
+                Cantidad
+              </div>
+
+              <div style="float: left; width: 15%; margin-right: 5%; text-align: center;">
+                Precio
+              </div>
+
+              <div style="float: left; width: 15%; margin-right: 5%; text-align: center;">
+                Total
+              </div>
+            </div>
+            <% @cart.items.each do |item| %>
+                <div class="row" style="margin-bottom: 5px; border: solid gray 1px; padding-bottom: 5px">
+
+                  <div style="width:15%; float: left;  margin-right: 5%;  border: solid gray 1px; padding: 3px; color: black">
+                    <a href="productos/<%= item.producto.id %>">
+                      <img src="<%= item.producto.foto_url %>" class="img-responsive" alt=""/>
+                    </a>
+                  </div>
+
+                  <div style="float: left; width: 15%; margin-right: 5%; margin-top: 2%">
+                    <a href="productos/<%= item.producto.id %>" style="color: black"><%= item.producto.nombre %></a>
+                  </div>
+
+                  <div style="float: left; width: 15%; margin-right: 5%; text-align: center; margin-top: 2%">
+                    <%= item.cantidad %>
+                  </div>
+
+                  <div style="float: left; width: 15%; margin-right: 5%; text-align: center; margin-top: 2%"">
+                  <%= item.producto.precio %>
+                </div>
+
+                <div style="float: left; width: 15%; margin-right: 5%; text-align: center; margin-top: 2%">
+                  <%= item.total %>
+                </div>
+                </div>
+            <% end %>
+            </div>
+
+        <div style="float: left; margin-left: 5%; width: 25%">
+
+
+          <div>
+            <div class="box-info-product">
+              <p class="price2"><label style="font-size: 0.7em; font-weight: 100; margin-right: 10px">Total: </label>$<%= @cart.total %></p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </div>
+  </body>
+</html>

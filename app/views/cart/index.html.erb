@@ -1,36 +1,85 @@
 <div class="main">
-  <div class="shop_top">
+  <div class="shop_top" style="padding: 1% 0">
     <div class="container">
-
-      <% @cart.items.each do |item| %>
-          <div class="row">
-            <div class="col-md-3 shop_box">
-              <a href="productos/<%= item.producto.id %>">
-                <img src="<%= item.producto.foto_url %>" class="img-responsive" alt=""/>
-              </a>
-            </div>
-
-            <div style="float: left">
-              <h3><a href="productos/<%= item.producto.id %>"><%= item.producto.nombre %></a></h3>
-              <%= link_to "Remover", remove_from_cart_path(:product_id => item.producto.id), :method => :post %>
-            </div>
-
-
-              <!--<div class="col-md-3 shop_box">-->
-                <!--<a href="productos/<%= item.producto.id %>">-->
-                  <!--<img src="<%= item.producto.foto_url %>" class="img-responsive" alt=""/>-->
-                <!--</a>-->
-              <!--</div>-->
-              <!--<div style="float: left ">-->
-                <!--<h3><a href="productos/<%= item.producto.id %>"><%= item.producto.nombre %></a></h3>-->
-                <!--<span class="actual">$<%= item.producto.precio %></span><br>-->
-                <!--<span class="actual">$<%= item.cantidad %></span><br>-->
-
-              <!--</div>-->
-
-
+      <div style="float: left; width: 70%">
+        <div class="row" style="margin-bottom: 5px; background-color: black; height: 20px; color: white;">
+          <div style="float: left; width: 15%; margin: 0 5% 0 20%">
+            Producto
           </div>
-      <% end %>
+
+          <div style="float: left; width: 15%; margin: 0 5% 0 0; text-align: center">
+            Cantidad
+          </div>
+
+          <div style="float: left; width: 15%; margin-right: 5%; text-align: center;">
+            Precio
+          </div>
+
+          <div style="float: left; width: 15%; margin-right: 5%; text-align: center;">
+            Total
+          </div>
+        </div>
+        <% @cart.items.each do |item| %>
+            <div class="row" style="margin-bottom: 5px; border: solid gray 1px; padding-bottom: 5px">
+
+              <div style="width:15%; float: left;  margin-right: 5%;  border: solid gray 1px; padding: 3px; color: black">
+                <a href="productos/<%= item.producto.id %>">
+                  <img src="<%= item.producto.foto_url %>" class="img-responsive" alt=""/>
+                </a>
+              </div>
+
+              <div style="float: left; width: 15%; margin-right: 5%; margin-top: 2%">
+                <a href="productos/<%= item.producto.id %>" style="color: black"><%= item.producto.nombre %></a>
+                <%= link_to "Remover", remove_from_cart_path(:product_id => item.producto.id), :style=>'color: gray; font-size: small', :method => :post %>
+              </div>
+
+              <div style="float: left; width: 15%; margin-right: 5%; text-align: center; margin-top: 2%">
+                <%= item.cantidad %>
+                <div>
+                  <%= link_to add_to_cart_path(:product_id => item.producto.id), :method => :post do %>
+                      <img src="/images/plus.png" style="width: 15px">
+                  <% end %>
+                  <%= link_to remove_from_cart_path(:product_id => item.producto.id), :method => :post do %>
+                      <img src="/images/minus.png" style="width: 15px">
+                  <% end %>
+                </div>
+              </div>
+
+              <div style="float: left; width: 15%; margin-right: 5%; text-align: center; margin-top: 2%"">
+                <%= item.producto.precio %>
+              </div>
+
+              <div style="float: left; width: 15%; margin-right: 5%; text-align: center; margin-top: 2%">
+                <%= item.total %>
+              </div>
+            </div>
+        <% end %>
+      </div>
+
+      <div style="float: left; margin-left: 5%; width: 25%">
+
+
+        <div>
+          <div class="box-info-product">
+            <p class="price2"><label style="font-size: 0.7em; font-weight: 100; margin-right: 10px">Total: </label>$<%= @cart.total %></p>
+          </div>
+          <%= form_tag("/cart", method: "post") do %>
+            <div class="to" style="width: 100%">
+              <input type="text" name="nombre" class="text" value="Nombre" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Nombre';}">
+              <input type="text" name="email" class="text" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}">
+              <input type="text" name="telefono" class="text" value="Teléfono" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Teléfono';}">
+            </div>
+            <div class="text" style="width: 95%">
+              <textarea name="direccion" value="Dirección [opcional]:" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Dirección [opcional]:';}">Dirección [opcional]:</textarea>
+            </div>
+              <div class="form-submit">
+              <input name="submit" type="submit" id="submit" value="Continuar" onclick="if(!confirm('Al continuar un agente se comunicará con usted para proceder al pago y entrega del pedido'))return false;"><br>
+            </div>
+            <div class="clear"></div>
+          <% end %>
+        </div>
+
+      </div>
     </div>
   </div>
 </div>
