@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  scope "/admin" do
+    resources :fotos
+  end
+
   devise_for :usuarios, controllers: { registrations: "registrations/registrations" }
   scope "/admin" do
     resources :usuarios

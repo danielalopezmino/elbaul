@@ -9,18 +9,12 @@
                 <img class="etalage_thumb_image" src="<%= @producto.foto_url %>" />
                 <img class="etalage_source_image" src="<%= @producto.foto_url %>" />
               </li>
-              <li>
-                <img class="etalage_thumb_image" src="<%= @producto.foto_url %>" />
-                <img class="etalage_source_image" src="<%= @producto.foto_url %>" />
-              </li>
-              <li>
-                <img class="etalage_thumb_image" src="<%= @producto.foto_url %>" />
-                <img class="etalage_source_image" src="<%= @producto.foto_url %>" />
-              </li>
-              <li>
-                <img class="etalage_thumb_image" src="<%= @producto.foto_url %>" />
-                <img class="etalage_source_image" src="<%= @producto.foto_url %>" />
-              </li>
+              <% @producto.fotos.each do |foto| %>
+                  <li>
+                    <img class="etalage_thumb_image" src="<%= foto.url %>" />
+                    <img class="etalage_source_image" src="<%= foto.url %>" />
+                  </li>
+              <% end %>
             </ul>
           </div>
           <!-- end product_slider -->

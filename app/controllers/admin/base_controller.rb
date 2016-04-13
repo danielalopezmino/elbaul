@@ -4,6 +4,6 @@ class Admin::BaseController < ApplicationController
   #before_filter :login_required, :load_admin_menu
 
   def authorize_admin
-    redirect_to root_path, alert: 'Access Denied' unless current_usuario.isAdmin?
+    redirect_to root_path, alert: 'No tiene autorización para administrar la aplicación' unless current_usuario.isAdmin?
   end
 end
