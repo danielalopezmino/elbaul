@@ -2,13 +2,6 @@
 <html>
   <head>
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-    <link href="/css/bootstrap.css" rel='stylesheet' type='text/css' />
-    <link href="/css/style.css" rel='stylesheet' type='text/css' />
-
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
   </head>
   <body>
   <h1>Tenemos un nuevo pedido (QUE BIEN!!!) </h1>
@@ -19,7 +12,6 @@
   <br />
   <h3>Pedido:</h3>
   <div>
-    <div class="main">
       <div class="shop_top" style="padding: 1% 0">
         <div class="container">
           <div style="float: left; width: 70%">
@@ -66,11 +58,9 @@
                 </div>
                 </div>
             <% end %>
-            </div>
+        </div>
 
         <div style="float: left; margin-left: 5%; width: 25%">
-
-
           <div>
             <div class="box-info-product">
               <p class="price2"><label style="font-size: 0.7em; font-weight: 100; margin-right: 10px">Total: </label>$<%= @cart.total %></p>
@@ -79,7 +69,6 @@
 
         </div>
       </div>
-    </div>
   </div>
 
   </div>
