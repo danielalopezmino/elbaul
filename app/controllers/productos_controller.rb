@@ -4,11 +4,17 @@ class ProductosController < ApplicationController
   # GET /productos.json
   def index
     busqueda = "#{params['search']}"
-    if busqueda.empty?
-      @productos = Producto.all
-    else
+    categoria = "#{params['categoria']}"
+    if !busqueda.empty?
       @productos = Producto.where("nombre like ? or descripcion like ?", "%#{busqueda}%", "%#{busqueda}%")
+    else
+      if !categoria.empty?
+        @productos = CategoriaProducto.where("categorium_id = ?", categoria.to_i).map{ |cp| cp.producto }
+      else
+        @productos = Producto.all
+      end
     end
+
   end
 
   # GET /productos/1
