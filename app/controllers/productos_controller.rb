@@ -5,11 +5,14 @@ class ProductosController < ApplicationController
   def index
     busqueda = "#{params['search']}"
     categoria = "#{params['categoria']}"
+
     if !busqueda.empty?
       @productos = Producto.where("nombre like ? or descripcion like ?", "%#{busqueda}%", "%#{busqueda}%")
+      @busqueda = busqueda
     else
       if !categoria.empty?
-        @productos = CategoriaProducto.where("categorium_id = ?", categoria.to_i).map{ |cp| cp.producto }
+        @productos = CategoriaProducto.where("categorium_id = ?", categoria).map{ |cp| cp.producto }
+        @categoria = Categorium.where("id = ?", categoria).first
       else
         @productos = Producto.all
       end

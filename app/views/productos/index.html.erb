@@ -1,6 +1,13 @@
 <div class="main">
+  <% if @busqueda %>
+      <p style="font-size: smaller">Busqueda: <b><%= @busqueda %></b></p>
+  <% end %>
+  <% if @categoria %>
+      <p style="font-size: smaller">Categoria: <b><%= @categoria.nombre %></b></p>
+  <% end %>
 <div class="shop_top">
   <div class="container">
+
 
     <% @productos.in_groups_of(4, false).each do |group| %>
       <div class="row">
