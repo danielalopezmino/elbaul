@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
   scope "/admin" do
+    resources :pedidos
+  end
+
+  scope "/admin" do
     resources :categoria_productos
   end
 

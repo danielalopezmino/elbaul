@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Fecha:</strong>
+  <%= @pedido.fecha %>
+</p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @pedido.nombre %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @pedido.email %>
+</p>
+
+<p>
+  <strong>Telefono:</strong>
+  <%= @pedido.telefono %>
+</p>
+
+<p>
+  <strong>Descuento:</strong>
+  <%= @pedido.descuento %>
+</p>
+
+<p>
+  <strong>Costo entrega:</strong>
+  <%= @pedido.costo_entrega %>
+</p>
+
+<p>
+  <strong>Nombre entrega:</strong>
+  <%= @pedido.nombre_entrega %>
+</p>
+
+<p>
+  <strong>Direccion entrega:</strong>
+  <%= @pedido.direccion_entrega %>
+</p>
+
+<p>
+  <strong>Fecha entrega:</strong>
+  <%= @pedido.fecha_entrega %>
+</p>
+
+<p>
+  <strong>Items:</strong>
+  <%= @pedido.items %>
+</p>
+
+<p>
+  <strong>Estado:</strong>
+  <%= @pedido.estado %>
+</p>
+
+<%= link_to 'Edit', edit_pedido_path(@pedido) %> |
+<%= link_to 'Back', pedidos_path %>

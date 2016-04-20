@@ -1,0 +1,61 @@
+<%= form_for(@pedido) do |f| %>
+  <% if @pedido.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@pedido.errors.count, "error") %> prohibited this pedido from being saved:</h2>
+
+      <ul>
+      <% @pedido.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :fecha %><br>
+    <%= f.date_select :fecha %>
+  </div>
+  <div class="field">
+    <%= f.label :nombre %><br>
+    <%= f.text_field :nombre %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :telefono %><br>
+    <%= f.text_field :telefono %>
+  </div>
+  <div class="field">
+    <%= f.label :descuento %><br>
+    <%= f.text_field :descuento %>
+  </div>
+  <div class="field">
+    <%= f.label :costo_entrega %><br>
+    <%= f.text_field :costo_entrega %>
+  </div>
+  <div class="field">
+    <%= f.label :nombre_entrega %><br>
+    <%= f.text_field :nombre_entrega %>
+  </div>
+  <div class="field">
+    <%= f.label :direccion_entrega %><br>
+    <%= f.text_area :direccion_entrega %>
+  </div>
+  <div class="field">
+    <%= f.label :fecha_entrega %><br>
+    <%= f.date_select :fecha_entrega %>
+  </div>
+  <div class="field">
+    <%= f.label :items %><br>
+    <%= f.text_area :items %>
+  </div>
+  <div class="field">
+    <%= f.label :estado %><br>
+    <%= f.text_field :estado %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

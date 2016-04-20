@@ -50,9 +50,32 @@ class CartController < ApplicationController
 
   def checkout
     cart = Cart.new(session[:cart_id])
-    PedidosMailer.checkout_email(params['nombre'], params['email'], params['telefono'], params['direccion'], cart).deliver_now
+    nombre = params['nombre']
+    email = params['email']
+    telefono = params['telefono']
+    direccion = params['direccion']
+
+    save_pedido(cart.items, nombre, email, telefono, direccion)
+
+    PedidosMailer.checkout_email(nombre, email, telefono, direccion, cart).deliver_now
     flash.now[:alert] = "Mail enviado, nos pondremos en contacto pronto"
 
     redirect_to controller: 'cart', action: 'index'
+  end
+
+  def save_pedido items, nombre, email, telefono, direccion
+    pedido = Pedido.new
+    pedido.fecha = Date.today
+    pedido.items = items.to_json
+
+    pedido.nombre = nombre
+    pedido.email = email
+    pedido.telefono = telefono
+
+    pedido.direccion_entrega = direccion
+
+    pedido.estado = 'Pendiente'
+
+    pedido.save
   end
 end
