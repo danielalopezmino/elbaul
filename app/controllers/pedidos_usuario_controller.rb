@@ -7,6 +7,8 @@ class PedidosUsuarioController < UsuarioLogeadoController
   def show
     id = params[:id].to_i
     email_usuario = current_usuario.email
-    @pedido = Pedido.find(id)
+    @pedido = Pedido.where("id = ? and email = ?", id, email_usuario).first
+
+    redirect_to root_path, alert: 'No tiene autorización para ver el pedido' unless @pedido != nil
   end
 end
