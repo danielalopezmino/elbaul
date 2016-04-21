@@ -1,0 +1,86 @@
+.pedido{
+    margin-bottom: 40px;
+    clear: both;
+}
+
+.cabecera{
+    width: 100%;
+    border-radius: 8px 8px 0 0;
+    background-color: #F8F8F8;
+    overflow: hidden;
+    padding: 10px;
+    font-size: smaller;
+}
+
+.resumen{
+    float: left;
+    width: 75%;
+}
+
+.columna{
+    width: 30%;
+    float: left;
+    text-align: center;
+}
+
+.detalles{
+    float: left;
+    width: 20%;
+    text-align: right;
+    margin-right: 5px;
+}
+
+.contenido{
+    border: 1px;
+    border-color: #EEEEEE;
+    border-style: solid;
+    overflow: hidden;
+    padding: 20px;
+    font-size: smaller;
+}
+
+.item{
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.container a{
+    color: #2a6496;
+}
+
+a:hover{
+    color: #d58512;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+.cancelado{
+    background-color: red;
+}
+.pendiente{
+}
+.pagado{
+    background-color: #0AA5E2;
+}
+.despachado{
+    background-color: #4cae4c;
+}
+.entregado{
+    background-color: darkgray;
+}
+
+.cancelado_label{
+    color: red;
+}
+.pendiente_label{
+    color: orange;
+}
+.pagado_label{
+    color: #0AA5E2;
+}
+.despachado_label{
+    color: #4cae4c;
+}
+.entregado_label{
+    color: darkgray;
+}

@@ -11,6 +11,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <link href="/css/bootstrap.css" rel='stylesheet' type='text/css' />
+  <link href="/css/general.css" rel='stylesheet' type='text/css' />
   <link href="/css/style.css" rel='stylesheet' type='text/css' />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -71,6 +72,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             <a class="toggleMenu" href="#"><img src="/images/nav.png" alt="" /></a>
             <ul class="nav" id="nav">
               <li><a href="#" onclick="window.location.href='/'">Inicio</a></li>
+              <% if usuario_signed_in? %>
+                  <li><a href="/pedidos">Mis Pedidos</a></li>
+              <% end %>
               <li><a href="/productos">Productos</a></li>
               <li><a href="/page/contactos">Contactos</a></li>
               <div class="clear"></div>
