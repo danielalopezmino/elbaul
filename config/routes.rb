@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'categorias' => 'lista_categorias#index', :as => 'lista_categorias'
+
   get 'pedidos' => 'pedidos_usuario#index', :as => 'pedidos_usuario'
   get 'pedidos/:id' => 'pedidos_usuario#show', :as => 'pedido_usuario'
 

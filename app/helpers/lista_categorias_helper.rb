@@ -1,0 +1,2 @@
+module ListaCategoriasHelper
+end
