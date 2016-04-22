@@ -78,8 +78,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
               <!--<li><a href="/productos">Productos</a></li>-->
               <li><a href="/categorias">Productos</a></li>
               <li><a href="/page/contactos">Contactos</a></li>
+              <li> | </li>
+              <% if usuario_signed_in? %>
+                  <li style="font-size: smaller"><%= link_to 'Salir', destroy_usuario_session_path %></li>
+              <% else %>
+                  <li style="font-size: smaller"><%= link_to 'Ingresar', new_usuario_session_path %></li>
+              <% end %>
               <div class="clear"></div>
             </ul>
+
             <script type="text/javascript" src="/js/responsive-nav.js"></script>
           </div>
           <div class="clear"></div>
@@ -102,6 +109,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             new UISearch( document.getElementById( 'sb-search' ) );
           </script>
           <!----//search-scripts---->
+          <div>
           <ul class="icon1 sub-icon1 profile_img">
             <li><a class="active-icon c1" href="#"> </a>
               <ul class="sub-icon1 list">
@@ -129,6 +137,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
               </ul>
             </li>
           </ul>
+          </div>
           <div class="clear"></div>
         </div>
       </div>
