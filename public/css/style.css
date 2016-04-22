@@ -546,7 +546,7 @@ li.list_desc h4 a:hover{
 }
 .content-bottom{
 	width:100%;
-	background: url(../images/bg_image.jpg)no-repeat center top;
+	background: url(https://github.com/danielalopezmino/danielalopezmino.github.io/blob/master/malebox/banners/quienes_somos.jpg?raw=true)no-repeat center top;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -1456,7 +1456,7 @@ ul.product-colors{
 	border-bottom: 1px solid #B0AFAF;
 	padding:7%;
 	margin-bottom: 20px;
-	min-width: 200px;
+	min-width: 120px;
 }
 p.price2{
 	color:#333;

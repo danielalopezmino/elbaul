@@ -18,7 +18,7 @@
 
 /* Large thumbnail: */
 #etalage .etalage_thumb{
-	background:url(../images/loading.gif) center no-repeat;
+	/*background:url(../images/loading.gif) center no-repeat;*/
 	border: 1px solid #eee;
 	padding: 6px;
 }
@@ -42,7 +42,7 @@
 /* Zoomed image area: */
 #etalage .etalage_zoom_area,
 .etalage_zoom_area{
-	background: white url(../images/loading.gif) center no-repeat;
+	/*background: white url(../images/loading.gif) center no-repeat;*/
 	border: 1px solid #EEE;
 	padding: 6px;
 }
