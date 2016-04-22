@@ -1,6 +1,11 @@
 <div class="main">
   <div class="shop_top" style="padding: 1% 0">
     <div class="container">
+      <% if @error %>
+        <div style="float: left; color: red; width: 100%; margin-bottom: 15px; text-align: right; font-size: smaller">
+          Por favor ingrese su email, nombre y teléfono
+        </div>
+      <% end %>
       <div style="float: left; width: 70%">
         <div class="row" style="margin-bottom: 20px; height: 20px; color: gray; font-weight: bold; font-size: smaller">
           <div style="float: left; width: 15%; margin: 0 5% 0 20%">
@@ -71,15 +76,21 @@
           </div>
           <%= form_tag("/cart", method: "post") do %>
             <div class="to" style="width: 100%">
+              <% if current_usuario %>
+                <input type="text" class="text" value="<%= current_usuario.email %>" disabled>
+                <input type="hidden" name="email" value="<%= current_usuario.email %>">
+              <% else %>
+                <input type="text" name="email" class="text" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}">
+              <% end %>
               <input type="text" name="nombre" class="text" value="Nombre" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Nombre';}">
-              <input type="text" name="email" class="text" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}">
               <input type="text" name="telefono" class="text" value="Teléfono" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Teléfono';}">
             </div>
             <div class="text" style="width: 95%">
-              <textarea name="direccion" value="Dirección [opcional]:" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Dirección [opcional]:';}">Dirección [opcional]:</textarea>
+              <textarea name="direccion" value="Dirección [opcional]" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Dirección [opcional]';}">Dirección [opcional]</textarea>
             </div>
               <div class="form-submit">
-              <input name="submit" type="submit" id="submit" value="Continuar" onclick="if(!confirm('Al continuar un agente se comunicará con usted para proceder al pago y entrega del pedido'))return false;"><br>
+                <script>submited=false</script>
+              <input name="submit" type="submit" id="submit" value="Continuar" onclick="if(submited)return false; if(confirm('Al continuar un agente se comunicará con usted para proceder al pago y entrega del pedido')){this.value='Enviando pedido...'; submited=true} else {return false};"><br>
             </div>
             <div class="clear"></div>
           <% end %>

@@ -46,22 +46,44 @@ class CartController < ApplicationController
     cart = session[:cart_id]
 
     @cart = Cart.new(cart)
+    @error = params['error']
   end
 
   def checkout
     cart = Cart.new(session[:cart_id])
-    nombre = params['nombre']
     email = params['email']
+    nombre = params['nombre']
     telefono = params['telefono']
     direccion = params['direccion']
 
-    save_pedido(cart.items, nombre, email, telefono, direccion)
+    if direccion.eql?("Dirección [opcional]")
+      direccion = ''
+    end
 
-    PedidosMailer.checkout_email(nombre, email, telefono, direccion, cart).deliver_now
-    flash.now[:alert] = "Mail enviado, nos pondremos en contacto pronto"
+    if validate email, nombre, telefono
+      save_pedido(cart.items, nombre, email, telefono, direccion)
 
-    redirect_to controller: 'cart', action: 'index'
+      PedidosMailer.checkout_email(nombre, email, telefono, direccion, cart).deliver_now
+      flash.now[:alert] = "Mail enviado, nos pondremos en contacto pronto"
+
+      redirect_to controller: 'cart', action: 'index'
+    else
+      flash.now[:alert] = "Por favor ingrese su email, nombre y telefono"
+      redirect_to controller: 'cart', action: 'index', error: true
+    end
+
   end
+
+  def validate(email, nombre, telefono)
+    !((!is_a_valid_email?(email)) ||
+        (nombre.strip.empty? || nombre.eql?('Nombre')) ||
+        (telefono.strip.empty? || telefono.eql?('Teléfono')))
+  end
+
+  def is_a_valid_email?(email)
+    (email =~ /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i)
+  end
+
 
   def save_pedido items, nombre, email, telefono, direccion
     pedido = Pedido.new
