@@ -40,6 +40,8 @@ Rails.application.routes.draw do
 
   get 'page/contactos'
 
+  get 'page/comocomprar'
+
   post 'page/contactos' => 'page#send_email'
 
   get 'cart' => 'cart#index'

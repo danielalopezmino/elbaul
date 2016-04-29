@@ -78,7 +78,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
               <!--<li><a href="/productos">Productos</a></li>-->
               <li><a href="/categorias">Productos</a></li>
               <li><a href="/page/contactos">Contactos</a></li>
-              <li> | </li>
+              <li><a href="/page/comocomprar">¿Cómo Comprar?</a></li>
               <% if usuario_signed_in? %>
                   <li style="font-size: smaller"><%= link_to 'Salir', destroy_usuario_session_path %></li>
               <% else %>
@@ -118,7 +118,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <li class="list_desc" style="float: right">
                   <h4>
                     <% if usuario_signed_in? %>
-                        <%= current_usuario.email %>
+                        <!-- <%= current_usuario.email %> -->
                     <% else %>
                         Ingresa a nuestra plataforma
                     <% end %>
@@ -153,15 +153,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
       <div class="col-md-3">
         <ul class="footer_box">
           <h4>Productos</h4>
-          <li><a href="#">Wood Box</a></li>
-          <li><a href="#">Metal Box</a></li>
-          <li><a href="#">Chocolate</a></li>
+          <li><a href="/productos?categoria=4">Wood Box</a></li>
+          <li><a href="productos?categoria=2">Metal Box</a></li>
+          <li><a href="/productos?categoria=3">Chocolate</a></li>
         </ul>
       </div>
       <div class="col-md-3">
         <ul class="footer_box">
           <h4>Conócenos</h4>
-          <li><a href="#">Quienes Somos</a></li>
+          <li><a href="http://maleboxgifts.herokuapp.com/">Quienes Somos</a></li>
         </ul>
       </div>
       <div class="col-md-3">
