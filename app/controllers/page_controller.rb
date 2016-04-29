@@ -1,6 +1,6 @@
 class PageController < ApplicationController
   def home
-    @productos = Producto.all.sample(10)
+    @productos = Producto.all.sample(6)
     @categorias = Categorium.all
   end
 
