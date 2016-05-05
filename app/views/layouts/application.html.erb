@@ -64,26 +64,21 @@ License URL: http://creativecommons.org/licenses/by/3.0/
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <div class="header-left">
+        <div class="header-left" style="width:75%">
           <div class="logo">
             <a href="#" onclick="window.location.href='/'"><img src="/images/logo.png" alt=""/></a>
           </div>
           <div class="menu">
             <a class="toggleMenu" href="#"><img src="/images/nav.png" alt="" /></a>
             <ul class="nav" id="nav">
-              <li><a href="#" onclick="window.location.href='/'">Inicio</a></li>
+              <!-- <li><a href="#" onclick="window.location.href='/'">Inicio</a></li> -->
               <% if usuario_signed_in? %>
-                  <li><a href="/pedidos">Mis Pedidos</a></li>
+                  <li><a href="/pedidos">Pedidos</a></li>
               <% end %>
               <!--<li><a href="/productos">Productos</a></li>-->
               <li><a href="/categorias">Productos</a></li>
               <li><a href="/page/contactos">Contactos</a></li>
               <li><a href="/page/comocomprar">¿Cómo Comprar?</a></li>
-              <% if usuario_signed_in? %>
-                  <li style="font-size: smaller"><%= link_to 'Salir', destroy_usuario_session_path %></li>
-              <% else %>
-                  <li style="font-size: smaller"><%= link_to 'Ingresar', new_usuario_session_path %></li>
-              <% end %>
               <div class="clear"></div>
             </ul>
 
@@ -118,7 +113,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <li class="list_desc" style="float: right">
                   <h4>
                     <% if usuario_signed_in? %>
-                        <!-- <%= current_usuario.email %> -->
+                        <span style="font-size:x-small"><%= current_usuario.email %></span>
                     <% else %>
                         Ingresa a nuestra plataforma
                     <% end %>
@@ -130,6 +125,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                   <% else %>
                       <div class="login_button"><%= link_to 'Ingresar', new_usuario_session_path %></div>
                   <% end %>
+                  <div style="float: right; margin: 10px 10px 0 0;">
+                    <%= link_to cart_path do %>
+                      <img src="/images/cart.png" style="width: 30px">
+                    <% end %>
+                  </div>
 
                   <div class="clear"></div>
                 </div>
@@ -153,10 +153,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
       <div class="col-md-3">
         <ul class="footer_box">
           <h4>Productos</h4>
-          <li><a href="/productos?categoria=4">Wood Box</a></li>
-          <li><a href="productos?categoria=2">Metal Box</a></li>
-          <li><a href="/productos?categoria=3">Chocolate</a></li>
-          <li><a href="#">More</a></li>
+          <% Categorium.all.each do |c| %>
+            <li><a href="/productos?categoria=<%= c.id %>"><%= c.nombre %></a></li>
+          <% end %>
         </ul>
       </div>
       <div class="col-md-3">
