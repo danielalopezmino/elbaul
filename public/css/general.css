@@ -31,9 +31,6 @@
 }
 
 .contenido{
-    border: 1px;
-    border-color: #EEEEEE;
-    border-style: solid;
     overflow: hidden;
     padding: 20px;
     font-size: smaller;

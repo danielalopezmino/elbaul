@@ -3,12 +3,10 @@
       <p style="font-size: smaller">Busqueda: <b><%= @busqueda %></b></p>
   <% end %>
   <% if @categoria %>
-      <p style="font-size: smaller">Categoria: <b><%= @categoria.nombre %></b></p>
+      <p style="font-size: x-small; padding: 30px 0 0 50px">Categoria > <b><%= @categoria.nombre %></b></p>
   <% end %>
 <div class="shop_top">
   <div class="container">
-
-
     <% @productos.in_groups_of(4, false).each do |group| %>
       <div class="row">
         <% group.each do |producto| %>

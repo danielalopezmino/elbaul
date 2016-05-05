@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get 'pedidos' => 'pedidos_usuario#index', :as => 'pedidos_usuario'
   get 'pedidos/:id' => 'pedidos_usuario#show', :as => 'pedido_usuario'
 
+  get 'checkout' => 'checkout#index'
+
   scope "/admin" do
     resources :pedidos
   end

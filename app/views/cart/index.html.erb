@@ -1,102 +1,109 @@
 <div class="main">
   <div class="shop_top" style="padding: 1% 0">
-    <div class="container">
-      <% if @error %>
-        <div style="float: left; color: red; width: 100%; margin-bottom: 15px; text-align: right; font-size: smaller">
-          Por favor ingrese su email, nombre y teléfono
-        </div>
-      <% end %>
-      <div style="float: left; width: 70%">
-        <div class="row" style="margin-bottom: 20px; height: 20px; color: gray; font-weight: bold; font-size: smaller">
-          <div style="float: left; width: 15%; margin: 0 5% 0 20%">
-            Producto
-          </div>
-
-          <div style="float: left; width: 15%; margin: 0 5% 0 0; text-align: center">
-            Cantidad
-          </div>
-
-          <div style="float: left; width: 15%; margin-right: 5%; text-align: center;">
-            Precio
-          </div>
-
-          <div style="float: left; width: 15%; margin-right: 5%; text-align: center; color: #E25050">
-            Total
-          </div>
-        </div>
-        <% @cart.items.each do |item| %>
-            <div class="row" style="margin-bottom: 5px; border-bottom: solid gray 1px; padding-bottom: 5px">
-
-              <div style="width:15%; float: left;  margin-right: 5%;  border: solid gray 1px; padding: 3px; color: black">
-                <a href="productos/<%= item.producto.id %>">
-                  <img src="<%= item.producto.foto_url %>" class="img-responsive" alt=""/>
-                </a>
+      <div class="container">
+        <% if @cart %>
+          <% if @error %>
+            <div style="float: left; color: red; width: 100%; margin-bottom: 15px; text-align: right; font-size: smaller">
+              Por favor ingrese su email, nombre, teléfono y nombre de entrega
+            </div>
+          <% end %>
+          <div style="float: left; width: 70%">
+            <div class="row" style="margin-bottom: 20px; height: 20px; color: gray; font-weight: bold; font-size: smaller">
+              <div style="float: left; width: 15%; margin: 0 5% 0 20%">
+                Producto
               </div>
 
-              <div style="float: left; width: 15%; margin-right: 5%; margin-top: 2%">
-                <a href="productos/<%= item.producto.id %>" style="color: black; font-size: smaller"><%= item.producto.nombre %></a>
-                <%= link_to remove_all_from_cart_path(:product_id => item.producto.id), :style=>'color: gray; font-size: small', :method => :post,  data: { confirm: 'Se eliminirá el producto de su pedido' } do%>
-                  <img src="/images/remove.png" style="width: 15px">
-                <% end %>
+              <div style="float: left; width: 15%; margin: 0 5% 0 0; text-align: center">
+                Cantidad
               </div>
 
-              <div style="float: left; width: 15%; margin-right: 5%; text-align: center; margin-top: 2%">
-                <%= item.cantidad %>
-                <div>
-                  <% if item.cantidad < 10 %>
-                    <%= link_to add_to_cart_path(:product_id => item.producto.id), :method => :post do %>
-                        <img src="/images/plus.png" style="width: 15px">
-                    <% end %>
-                  <% end %>
-                  <% if item.cantidad > 1 %>
-                    <%= link_to remove_from_cart_path(:product_id => item.producto.id), :method => :post do %>
-                        <img src="/images/minus.png" style="width: 15px">
-                    <% end %>
-                  <% end %>
-                </div>
+              <div style="float: left; width: 15%; margin-right: 5%; text-align: center;">
+                Precio
               </div>
 
-              <div style="float: left; width: 15%; margin-right: 5%; text-align: center; margin-top: 2%">
-                <%= item.producto.precio %>
-              </div>
-
-              <div style="float: left; width: 15%; margin-right: 5%; text-align: center; margin-top: 2%; font-weight: bold">
-                <%= item.total %>
+              <div style="float: left; width: 15%; margin-right: 5%; text-align: center; color: #E25050">
+                Total
               </div>
             </div>
+            <% @cart.items.each do |item| %>
+                <div class="row" style="margin-bottom: 5px; border-bottom: solid gray 1px; padding-bottom: 5px">
+
+                  <div style="width:15%; float: left;  margin-right: 5%;  border: solid gray 1px; padding: 3px; color: black">
+                    <a href="productos/<%= item.producto.id %>">
+                      <img src="<%= item.producto.foto_url %>" class="img-responsive" alt=""/>
+                    </a>
+                  </div>
+
+                  <div style="float: left; width: 15%; margin-right: 5%; margin-top: 2%">
+                    <a href="productos/<%= item.producto.id %>" style="color: black; font-size: smaller"><%= item.producto.nombre %></a>
+                    <%= link_to remove_all_from_cart_path(:product_id => item.producto.id), :style=>'color: gray; font-size: small', :method => :post,  data: { confirm: 'Se eliminirá el producto de su pedido' } do%>
+                      <img src="/images/remove.png" style="width: 15px">
+                    <% end %>
+                  </div>
+
+                  <div style="float: left; width: 15%; margin-right: 5%; text-align: center; margin-top: 2%">
+                    <%= item.cantidad %>
+                    <div>
+                      <% if item.cantidad < 10 %>
+                        <%= link_to add_to_cart_path(:product_id => item.producto.id), :method => :post do %>
+                            <img src="/images/plus.png" style="width: 15px">
+                        <% end %>
+                      <% end %>
+                      <% if item.cantidad > 1 %>
+                        <%= link_to remove_from_cart_path(:product_id => item.producto.id), :method => :post do %>
+                            <img src="/images/minus.png" style="width: 15px">
+                        <% end %>
+                      <% end %>
+                    </div>
+                  </div>
+
+                  <div style="float: left; width: 15%; margin-right: 5%; text-align: center; margin-top: 2%">
+                    <%= item.producto.precio %>
+                  </div>
+
+                  <div style="float: left; width: 15%; margin-right: 5%; text-align: center; margin-top: 2%; font-weight: bold">
+                    <%= item.total %>
+                  </div>
+                </div>
+            <% end %>
+          </div>
+
+          <div style="float: left; margin-left: 5%; width: 25%">
+
+
+            <div>
+              <div class="box-info-product">
+                <p class="price2"><label style="font-size: 0.7em; font-weight: 100; margin-right: 10px">Total: </label>$<%= @cart.total %></p>
+              </div>
+              <%= form_tag("/cart", method: "post") do %>
+                <div class="to" style="width: 100%">
+                  <% if current_usuario %>
+                    <input type="text" class="text" value="<%= current_usuario.email %>" disabled>
+                    <input type="hidden" name="email" value="<%= current_usuario.email %>">
+                  <% else %>
+                    <input type="text" name="email" class="text" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}">
+                  <% end %>
+                  <input type="text" name="nombre" class="text" value="Nombre" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Nombre';}">
+                  <input type="text" name="telefono" class="text" value="Teléfono" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Teléfono';}">
+                  <input type="text" name="nombre_entrega" class="text" value="Entregar a" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Entregar a';}">
+                </div>
+                <div class="text" style="width: 95%">
+                  <textarea name="direccion" value="Dirección [opcional]" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Dirección [opcional]';}">Dirección [opcional]</textarea>
+                  <textarea name="mensaje" value="Mensaje [opcional]" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Mensaje [opcional]';}">Mensaje [opcional]</textarea>
+                </div>
+                  <div class="form-submit">
+                    <script>submited=false</script>
+                  <input name="submit" type="submit" id="submit" value="Continuar" onclick="if(submited)return false; {this.value='Enviando pedido...'; submited=true};"><br>
+                </div>
+                <div class="clear"></div>
+              <% end %>
+            </div>
+
+          </div>
+        <% else %>
+            No has añadido ningún producto
         <% end %>
       </div>
 
-      <div style="float: left; margin-left: 5%; width: 25%">
-
-
-        <div>
-          <div class="box-info-product">
-            <p class="price2"><label style="font-size: 0.7em; font-weight: 100; margin-right: 10px">Total: </label>$<%= @cart.total %></p>
-          </div>
-          <%= form_tag("/cart", method: "post") do %>
-            <div class="to" style="width: 100%">
-              <% if current_usuario %>
-                <input type="text" class="text" value="<%= current_usuario.email %>" disabled>
-                <input type="hidden" name="email" value="<%= current_usuario.email %>">
-              <% else %>
-                <input type="text" name="email" class="text" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}">
-              <% end %>
-              <input type="text" name="nombre" class="text" value="Nombre" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Nombre';}">
-              <input type="text" name="telefono" class="text" value="Teléfono" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Teléfono';}">
-            </div>
-            <div class="text" style="width: 95%">
-              <textarea name="direccion" value="Dirección [opcional]" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Dirección [opcional]';}">Dirección [opcional]</textarea>
-            </div>
-              <div class="form-submit">
-                <script>submited=false</script>
-              <input name="submit" type="submit" id="submit" value="Continuar" onclick="if(submited)return false; if(confirm('Al continuar un agente se comunicará con usted para proceder al pago y entrega del pedido')){this.value='Enviando pedido...'; submited=true} else {return false};"><br>
-            </div>
-            <div class="clear"></div>
-          <% end %>
-        </div>
-
-      </div>
-    </div>
   </div>
 </div>
